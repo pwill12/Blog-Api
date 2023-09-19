@@ -27,12 +27,7 @@ mongoose
 //middlewares
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-const corsOptions = {
-    origin: "*",
-    // methods: ["GET", "POST", "PUT", "PATCH"],
-    "Access-Control-Allow-Credentials": true,
-};
-app.use(cors(corsOptions))
+app.use(cors({origin:"https://princeblog12.netlify.app",credentials:true}))
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
