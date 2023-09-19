@@ -27,7 +27,12 @@ mongoose
 //middlewares
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-app.use(cors({origin:"*",credentials:true}))
+const corsOptions = {
+    origin: "*",
+    // methods: ["GET", "POST", "PUT", "PATCH"],
+    "Access-Control-Allow-Credentials": true,
+};
+app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
