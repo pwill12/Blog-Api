@@ -56,6 +56,11 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
     res.status(200).json("Image has been uploaded successfully!")
 })
 
+app.get("/",(req,res)=>{
+    // console.log(req.body)
+    res.status(200).json("Princewill Api")
+})
+
 
 app.listen(process.env.PORT,()=>{
     console.log("app is running on port "+process.env.PORT)
